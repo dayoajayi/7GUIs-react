@@ -17,7 +17,7 @@ code {
 }
 
 button {
-  width: 80px;
+  width: fit-content;
   margin-left: 10px;
   margin-right: 10px;
   background-color: coral;

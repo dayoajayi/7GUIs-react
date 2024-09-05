@@ -25,3 +25,11 @@ test("it should increase the value correctly when button is clicked twice", () =
     expect(count).toBeVisible();
 });
 
+test("it should reset the value to zero when clickec", () => {
+    render(<Counter />);
+    const resetButton = screen.getByText("Reset");
+    fireEvent.click(resetButton);
+    const count = screen.queryByText(0);
+    expect(count).toBeVisible();
+});
+
