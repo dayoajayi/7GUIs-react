@@ -7,6 +7,8 @@ function App() {
     <div>
       <Counter />
     </div>
+
+      
   );
 }
 
