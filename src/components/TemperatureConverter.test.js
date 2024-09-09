@@ -11,3 +11,14 @@ test("it should render two empty input fields",  () => {
     expect(celciusInputForm.value).toBe('');
     expect(fahrenheitInputForm.value).toBe('');
 });
+
+test("entering a number in the celcius input should display the correct conversion in the fahrenheit input", () => {
+    render(<TemperatureConverter/>);
+
+    const celciusInputForm = screen.getByLabelText('Celcius', {selector: 'input'});
+    fireEvent.change(celciusInputForm, {target:{value: '100'}})
+
+    const fahrenheitInputForm = screen.getByLabelText('Fahrenheit', {selector: 'input'});
+    expect(fahrenheitInputForm.value).toBe("212.00");
+
+});

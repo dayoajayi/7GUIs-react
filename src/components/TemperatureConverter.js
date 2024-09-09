@@ -1,7 +1,31 @@
+import {useState} from "react";
+
 const TemperatureConverter = () => {
 
-    const {celcius} = ''
-    const {fahrenheit} = ''
+    const [celcius, setCelcius] = useState("")
+    const [fahrenheit, setFahrenheit] = useState("")
+
+    const handleCelcius = (e) => {
+        const celciusValue = e.target.value;
+        setCelcius(celciusValue);
+        if (celciusValue === "") {
+            setFahrenheit("");
+        } else {
+            const fValue= parseFloat(celciusValue * (9 / 5) + 32);
+            setFahrenheit(fValue.toFixed(2));
+        }
+    };
+
+    const handleFahrenheit = (e) => {
+        const fahrenheitValue = e.target.value;
+        setFahrenheit(fahrenheitValue);
+        if (fahrenheit === "") {
+            setCelcius("");
+        } else {
+            const cValue = parseFloat((fahrenheitValue - 32) * 5 / 9);
+            setCelcius(cValue.toFixed(2));
+        }
+    }
 
     return (<div>
         <form>
@@ -11,6 +35,7 @@ const TemperatureConverter = () => {
                     id="celcius"
                     type="number"
                     value={celcius}
+                    onChange={handleCelcius}
                 />
             </div>
 
@@ -20,6 +45,7 @@ const TemperatureConverter = () => {
                     id="fahrenheit"
                     type="number"
                     value={fahrenheit}
+                    onChange={handleFahrenheit}
                 />
             </div>
         </form>
