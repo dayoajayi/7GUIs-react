@@ -2,40 +2,40 @@ import {useState} from "react";
 
 const TemperatureConverter = () => {
 
-    const [celcius, setCelcius] = useState("")
+    const [celsius, setCelsius] = useState("")
     const [fahrenheit, setFahrenheit] = useState("")
 
-    const handleCelcius = (e) => {
-        const celciusValue = e.target.value;
-        setCelcius(celciusValue);
-        if (celciusValue === "") {
+    const handleCelsius = (e) => {
+        const celsiusValue = e.target.value;
+        setCelsius(celsiusValue);
+        if (celsiusValue === "") {
             setFahrenheit("");
         } else {
-            const fValue= parseFloat(celciusValue * (9 / 5) + 32);
+            const fValue= parseFloat(celsiusValue * (9 / 5) + 32);
             setFahrenheit(fValue.toFixed(2));
-        }
+         }
     };
 
     const handleFahrenheit = (e) => {
         const fahrenheitValue = e.target.value;
         setFahrenheit(fahrenheitValue);
-        if (fahrenheit === "") {
-            setCelcius("");
+        if (fahrenheitValue === "") {
+            setCelsius("");
         } else {
             const cValue = parseFloat((fahrenheitValue - 32) * 5 / 9);
-            setCelcius(cValue.toFixed(2));
+            setCelsius(cValue.toFixed(2));
         }
     }
 
     return (<div>
         <form>
             <div>
-                <label htmlFor="celcius">Celcius</label>
+                <label htmlFor="celsius">Celsius</label>
                 <input
-                    id="celcius"
+                    id="celsius"
                     type="number"
-                    value={celcius}
-                    onChange={handleCelcius}
+                    value= {celsius}
+                    onChange={handleCelsius}
                 />
             </div>
 
